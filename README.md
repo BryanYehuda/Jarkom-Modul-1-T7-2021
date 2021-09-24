@@ -42,7 +42,7 @@ dan isikan jawaban urutan konfigurasi pengkabelan T568A
 ![](images/3-2.png)
 
 ## 4. Temukan Paket MySQL yang mengandung perintah Query Select!
-~REVISI~
+REVISI
 
 Masukkan command pada filter : frame matches "select"
 ![](images/4.png)
