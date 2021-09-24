@@ -8,13 +8,51 @@
 
 ## Sebutkan Webserver yang digunakan pada "ichimarumaru.tech"!
 
+Masukkan Command : http.host contains "ichimarumaru.tech"
+![](images/1-1.png)
+Kemudian lakukan : Follow TCP stream
+![](images/1.png)
+Jawabannya : nginx/1.18.0 (Ubuntu)
+
 ## Temukan Paket dari web-web yang menggunakan Basic Authentication method!
+
+Masukkan Command : http.authbasic
+![](images/2-1.png)
+Telah ditemukan Host : basic.ichimarumaru.tech
+Setelah itu Buka File -> Export ->Http
+Kemudian dilakukan Text Filter : basic.ichimarumaru.tech
+![](images/2.png)
+Terlihat paket dari web-web yang menggunakan basic authentication method
 
 ## Ikuti perintah di basic.ichimarumaru.tech! Username dan Password bisa didapatkan dari file .pcapng!
 
+Masukkan Command : http.host contains "basic.ichimarumaru.tech"
+![](images/3-1.png)
+Kemudian didapatkan Basic Authentication berupa base 64:
+a3VuY2ltZW51anVsYXV0YW46dFFLRUpGYmdOR0MxTkNabFdBT2poeUNPbTZvM3hFYlBrSmhUY2laTg==
+Dengan hasil Decode:
+kuncimenujulautan:tQKEJFbgNGC1NCZlWAOjhyCOm6o3xEbPkJhTciZN
+Kunjungi Website basic.ichimarumaru.tech 
+dan isikan jawaban urutan konfigurasi pengkabelan T568A
+![](images/3-2.png)
+![](images/3.png)
+
 ## Temukan Paket MySQL yang mengandung perintah Query Select!
 
+Masukkan command : frame contains "select"
+![](images/4.png)
+Terdapat 2 paket yang bisa terlihat pada Wireshark
+
 ## Login ke portal.ichimarumaru.tech kemudian ikuti perintahnya! Username dan Password bisa didapat dari Query Insert pada Table Users dari file .pcap!
+
+Masukkan command : frame contains "users"
+![](images/5-1.png)
+Kemudian lakukan : Follow TCP stream
+![](images/5-2.png)
+
+Didapatkan ("akakanomi",md5("pemisah4lautan")) dengan username "akakanomi" dan password "pemisah4lautan" untuk dilakukan login pada portal.ichimarumaru.tech
+Kemudian isikan jawaban urutan konfigurasi Pengkabelan T568
+![](images/5-3.png)
 
 ## Cari Username dan Password ketika melakukan Login ke FTP Server!
 Masukkan command Filter : ftp.request.command==USER || ftp.request.command==PASS
