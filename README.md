@@ -2,7 +2,7 @@
 ### Laporan Resmi Pengerjaan Sesi Lab Jaringan Komputer
 
 #### Nama Anggota Kelompok :
-1. Naufal Aprilian 
+1. Naufal Aprilian (05311940000007)
 2. Bryan Yehuda Mannuel (05311940000021)
 3. Mulki Kusumah
 
@@ -17,15 +17,54 @@
 ## Login ke portal.ichimarumaru.tech kemudian ikuti perintahnya! Username dan Password bisa didapat dari Query Insert pada Table Users dari file .pcap!
 
 ## Cari Username dan Password ketika melakukan Login ke FTP Server!
+Masukkan command Filter : ftp.request.command==USER || ftp.request.command==PASS
 
+Kemudian ditemukan:
+
+USER: secretuser
+
+PASS: aku.pengen.pw.aja
+
+![](images/6.png)
 ## Ada 500 file Zip yang disimpan ke FTP Server dengan nama 0.zip, 1.zip, 2.zip, ..., 499.zip. Simpan dan Buka file pdf tersebut.
+Masukkan command : frame contains "Real.pdf"
+![](images/7-dulu.png)
+Kemudian lakukan : follow tcp streams
+![](images/7.png)
+Kemudian save as raw
+![](images/7-real.png)
+Setelah file Real.pdf dibuka akan terlihat gambar tersebut
 
 ## Cari paket yang menunjukan pengambilan File dari FTP tersebut!
-
+Masukkan command Filter: frame contains "RETR"
+![](images/8-asli.png)
 ## Dari paket-paket yang menuju FTP terdapat indikasi penyimpanan beberapa file. Salah satunya adalah sebuah file berisi data rahasia dengan nama "secret.zip". Simpan dan Buka file tersebut!
-
+Masukkan command : frame contains "secret.zip"
+![](images/9.png)
+Kemudian lakukan follow TCP Stream dan akan didapatkan file zip dengan file signature PK
+![](images/9-1.png)
+Kemudian lakukan save as raw
+![](images/9-2.png)
+Buka File secret.zip, ternyata diminta password yang harus didapatkan dari file lain
+![](images/9-3.png)
 ## Selain itu terdapat "history.txt" yang kemungkinan berisi history Bash Server tersebut! Gunakan isi dari "history.txt" untuk menemukan Password untuk membuka file rahasia yang ada di "secret.zip"!
+Masukkan command filter : frame contains "STOR" && frame contains "history.txt"
+![](images/10.png)
+Lakukan Follow tcp stream dan save as raw. Saat membuka file history.txt, ternyata kita membutuhkan file bukanapaapa.txt
+![](images/10-3.png)
+Masukkan command : frame contains "STOR" && frame contains "bukanapaapa.txt"
 
+untuk mendapatkan file bukanapapa.txt
+![](images/10-1.png)
+![](images/10-2.png)
+Lakukan Follow tcp streams maka akan didapatkan file bukanapapa.txt
+dan didapatkan password : d1b1langbukanapaapajugagapercaya
+
+![](images/10-4.png)
+Masukkan password ke secret.zip
+![](images/10-5.png)
+Buka file wanted.pdf dengan password yang sudah didapatkan
+![](images/10-6.png)
 ## Filter sehingga Wireshark hanya mengambil paket yang berasal dari Port 80!
 
 1. Mengisi Capture Filter dengan : `src port 80`
