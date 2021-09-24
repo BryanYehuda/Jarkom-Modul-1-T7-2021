@@ -27,15 +27,15 @@ Terlihat paket dari web-web yang menggunakan basic authentication method
 ## Ikuti perintah di basic.ichimarumaru.tech! Username dan Password bisa didapatkan dari file .pcapng!
 
 Masukkan Command : http.host contains "basic.ichimarumaru.tech"
-![](images/3-1.png)
+![](images/3.png)
 Kemudian didapatkan Basic Authentication berupa base 64:
 a3VuY2ltZW51anVsYXV0YW46dFFLRUpGYmdOR0MxTkNabFdBT2poeUNPbTZvM3hFYlBrSmhUY2laTg==
 Dengan hasil Decode:
 kuncimenujulautan:tQKEJFbgNGC1NCZlWAOjhyCOm6o3xEbPkJhTciZN
 Kunjungi Website basic.ichimarumaru.tech 
 dan isikan jawaban urutan konfigurasi pengkabelan T568A
+![](images/3-1.png)
 ![](images/3-2.png)
-![](images/3.png)
 
 ## Temukan Paket MySQL yang mengandung perintah Query Select!
 
